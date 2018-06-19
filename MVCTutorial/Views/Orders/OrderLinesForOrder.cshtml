@@ -1,0 +1,21 @@
+﻿@model MVCTutorial.ViewModels.OrderLinesForOrder
+@{
+    ViewBag.Title = "OrderLinesForOrder";
+}
+
+<h2>OrderLinesForOrder</h2>
+
+<table class="table">
+    <tr>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Price</th>
+    </tr>
+    @foreach(var orderline in Model.OrderLine) {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => orderline.Product)</td>
+            <td>@Html.DisplayFor(modelItem => orderline.Quantity)</td>
+            <td>@Html.DisplayFor(modelItem => orderline.Price)</td>
+        </tr>
+    }
+</table>

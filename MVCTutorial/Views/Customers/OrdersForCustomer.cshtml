@@ -1,0 +1,28 @@
+﻿@model MVCTutorial.ViewModels.OrdersForCustomer
+@{
+    ViewBag.Title = "OrdersForCustomer";
+}
+
+<h2>OrdersForCustomer</h2>
+
+@if (Model.Customer == null) {
+    <h1>This customer does not exist</h1>
+} else {
+<table class="table">
+    <tr>
+        <th>Customer Name</th>
+        <th>Order Description</th>
+        <th>Order Total</th>
+        <th>Order ID</th>
+    </tr>
+
+    @foreach (var item in Model.Orders) {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.Customer.Name)</td>
+            <td>@Html.DisplayFor(modelItem => item.Description)</td>
+            <td>@Html.DisplayFor(modelItem => item.Total)</td>
+            <td>@Html.DisplayFor(modelItem => item.Id)</td>
+        </tr>
+    }
+</table>
+}
